@@ -46,6 +46,8 @@
 		70B584B81427A38A00C40DE7 /* QuickDialogTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 70B584951427A38A00C40DE7 /* QuickDialogTableView.m */; };
 		70B584B91427A38A00C40DE7 /* QWebElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 70B584981427A38A00C40DE7 /* QWebElement.m */; };
 		70B584BA1427A38A00C40DE7 /* QWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70B5849A1427A38A00C40DE7 /* QWebViewController.m */; };
+		70B584C01427A67F00C40DE7 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70B584BF1427A67F00C40DE7 /* CoreLocation.framework */; };
+		70B584C31427A68500C40DE7 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70B584C21427A68500C40DE7 /* MapKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -126,6 +128,8 @@
 		70B584981427A38A00C40DE7 /* QWebElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QWebElement.m; sourceTree = "<group>"; };
 		70B584991427A38A00C40DE7 /* QWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QWebViewController.h; sourceTree = "<group>"; };
 		70B5849A1427A38A00C40DE7 /* QWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QWebViewController.m; sourceTree = "<group>"; };
+		70B584BF1427A67F00C40DE7 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		70B584C21427A68500C40DE7 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +137,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				70B584C31427A68500C40DE7 /* MapKit.framework in Frameworks */,
+				70B584C01427A67F00C40DE7 /* CoreLocation.framework in Frameworks */,
 				70B5843F1427A2BD00C40DE7 /* UIKit.framework in Frameworks */,
 				70B584411427A2BD00C40DE7 /* Foundation.framework in Frameworks */,
 				70B584431427A2BD00C40DE7 /* CoreGraphics.framework in Frameworks */,
@@ -162,6 +168,8 @@
 		70B5843D1427A2BD00C40DE7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				70B584C21427A68500C40DE7 /* MapKit.framework */,
+				70B584BF1427A67F00C40DE7 /* CoreLocation.framework */,
 				70B5843E1427A2BD00C40DE7 /* UIKit.framework */,
 				70B584401427A2BD00C40DE7 /* Foundation.framework */,
 				70B584421427A2BD00C40DE7 /* CoreGraphics.framework */,
