@@ -15,6 +15,34 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    // Override point for customization after application launch.
+    self.window.backgroundColor = [UIColor whiteColor];
+    
+    QRootElement *root = [[QRootElement alloc] init];
+    root.title = @"Hello World"; // view title
+    root.grouped = YES; // view style
+    QSection *section = [[QSection alloc] init]; // section for the first of content
+    
+    // a label
+    QLabelElement *label = [[QLabelElement alloc] initWithTitle:@"Hello" Value:@"world!"];
+    // a button
+    QButtonElement *button = [[QButtonElement alloc] initWithTitle:@"Hit Me!"];
+    
+    [root addSection:section];
+    [section addElement:label];
+    [section addElement:button];
+    
+    // a second section
+    QSection *section_two = [[QSection alloc] init];
+    QButtonElement *button_two = [[QButtonElement alloc] initWithTitle:@"On my own!"];
+    [root addSection:section_two];
+    [section_two addElement:button_two];
+    
+    UINavigationController *navigation = [QuickDialogController controllerWithNavigationForRoot:root];
+    //[self presentModalViewController:navigation animated:YES];
+    [self.window addSubview:navigation.view];
+    
     [self.window makeKeyAndVisible];
     return YES;
 }
