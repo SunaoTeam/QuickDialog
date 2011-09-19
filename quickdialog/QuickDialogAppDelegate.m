@@ -14,11 +14,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
-    self.window.backgroundColor = [UIColor whiteColor];
-    
+    // Override point for customization after application launch.    
     QRootElement *root = [[QRootElement alloc] init];
     root.title = @"Hello World"; // view title
     root.grouped = YES; // view style
@@ -40,7 +36,8 @@
     [section_two addElement:button_two];
     
     UINavigationController *navigation = [QuickDialogController controllerWithNavigationForRoot:root];
-    //[self presentModalViewController:navigation animated:YES];
+    
+    // add as a subview
     [self.window addSubview:navigation.view];
     
     [self.window makeKeyAndVisible];
