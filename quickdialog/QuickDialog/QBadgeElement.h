@@ -23,7 +23,7 @@
 }
 
 @property(nonatomic, retain) UIColor *badgeColor;
-@property(nonatomic, strong) NSString *badge;
+@property(nonatomic, retain) NSString *badge;
 
 
 - (QBadgeElement *)initWithTitle:(NSString *)title Value:(NSString *)value;

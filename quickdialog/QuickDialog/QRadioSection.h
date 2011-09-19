@@ -21,7 +21,7 @@
     NSInteger _selected;
 }
 
-@property(nonatomic, strong) NSArray *items;
+@property(nonatomic, retain) NSArray *items;
 @property(nonatomic) NSInteger selected;
 
 

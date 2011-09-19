@@ -24,8 +24,8 @@
 }
 
 
-@property(nonatomic, strong) NSString *textValue;
-@property(nonatomic, strong) NSString *placeholder;
+@property(nonatomic, retain) NSString *textValue;
+@property(nonatomic, retain) NSString *placeholder;
 @property(assign) BOOL hiddenToolbar;
 @property(assign) BOOL isPassword;
 

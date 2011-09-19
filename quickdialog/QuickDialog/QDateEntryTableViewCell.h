@@ -22,7 +22,7 @@
 @private
     UILabel *_centeredLabel;
 }
-@property(nonatomic, strong) UIDatePicker *pickerView;
+@property(nonatomic, retain) UIDatePicker *pickerView;
 
 @property(nonatomic, retain) UILabel *centeredLabel;
 

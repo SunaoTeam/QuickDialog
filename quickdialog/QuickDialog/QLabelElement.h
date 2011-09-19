@@ -26,8 +26,8 @@
     UIImage *_image;
 }
 
-@property(nonatomic, strong) UIImage *image;
-@property(nonatomic, strong) NSString *value;
+@property(nonatomic, retain) UIImage *image;
+@property(nonatomic, retain) NSString *value;
 
 
 - (QLabelElement *)initWithTitle:(NSString *)string Value:(NSString *)value;

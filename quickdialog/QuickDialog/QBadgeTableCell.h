@@ -25,6 +25,6 @@
 
 
 @property(nonatomic, retain) UIColor *badgeColor;
-@property(nonatomic, readonly, strong) UILabel *badgeLabel;
+@property(nonatomic, readonly, retain) UILabel *badgeLabel;
 
 @end

@@ -30,7 +30,7 @@
     UIView *_footerView;
 }
 
-@property(nonatomic, strong) NSString *key;
+@property(nonatomic, retain) NSString *key;
 
 @property(nonatomic, retain) NSString *title;
 @property(nonatomic, retain) NSString *footer;

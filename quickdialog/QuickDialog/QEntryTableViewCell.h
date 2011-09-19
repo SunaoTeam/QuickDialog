@@ -29,7 +29,7 @@
     UIToolbar *_actionBar;
 }
 
-@property(nonatomic, strong) UITextField *textField;
+@property(nonatomic, retain) UITextField *textField;
 
 - (void)prepareForElement:(QEntryElement *)element inTableView:(QuickDialogTableView *)tableView;
 

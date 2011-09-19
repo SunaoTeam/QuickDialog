@@ -26,7 +26,7 @@
 }
 
 @property(nonatomic, retain) NSString *title;
-@property(nonatomic, strong) NSMutableArray *sections;
+@property(nonatomic, retain) NSMutableArray *sections;
 @property(assign) BOOL grouped;
 
 @property(nonatomic, retain) NSString *controllerName;
