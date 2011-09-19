@@ -1,5 +1,9 @@
 # QuickDialog
 
+_A fork of QuickDialog which removes the requirement of using automatic reference counting. The rest of the original README follows:_
+
+---
+
 **Quick and simple dialogs for iOS developers.**
 
 QuickDialog allows you to create HIG-compliant iOS forms for your apps  without having to directly deal with UITableViews, delegates and data sources. Fast and efficient, you can create forms with multiple text fields, or with thousands of items with no sweat!
