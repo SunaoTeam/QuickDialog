@@ -17,7 +17,7 @@
 @implementation QButtonElement
 
 - (QButtonElement *)initWithTitle:(NSString *)title {
-    self = [super initWithTitle:title Value:nil];
+    self = (QButtonElement *)[super initWithTitle:title Value:nil];
     return self;
 }
 

@@ -24,7 +24,7 @@
 
 
 - (QEntryElement *)initWithTitle:(NSString *)title Value:(NSString *)value Placeholder:(NSString *)placeholder {
-    self = [self initWithTitle:title Value:nil];
+    self = (QEntryElement *)[self initWithTitle:title Value:nil];
     _textValue = value;
     _placeholder = placeholder;
     return self;
@@ -32,7 +32,7 @@
 
 - (UITableViewCell *)getCellForTableView:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller {
 
-    QEntryTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"QuickformEntryElement"];
+    QEntryTableViewCell *cell = (QEntryTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"QuickformEntryElement"];
     if (cell==nil){
         cell = [[QEntryTableViewCell alloc] init];
     }

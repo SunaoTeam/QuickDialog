@@ -36,7 +36,7 @@
         quickformDataSource = [[QuickDialogDataSource alloc] initForTableView:self];
         self.dataSource = quickformDataSource;
 
-        quickformDelegate = [[QuickDialogTableDelegate alloc] initForTableView:self];
+        quickformDelegate = (id<UITableViewDelegate>)[[QuickDialogTableDelegate alloc] initForTableView:self];
         self.delegate = quickformDelegate;
     }
     return self;
