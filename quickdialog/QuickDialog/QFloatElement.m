@@ -19,7 +19,7 @@
 @synthesize floatValue = _floatValue;
 
 - (QFloatElement *)initWithTitle:(NSString *)title value:(float)value {
-    self = [super initWithTitle:title Value:nil] ;
+    self = (QFloatElement *)[super initWithTitle:title Value:nil] ;
     _floatValue = value;
     return self;
 }

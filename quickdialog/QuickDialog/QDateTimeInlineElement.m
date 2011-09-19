@@ -27,12 +27,12 @@
 }
 
 - (QDateTimeInlineElement *)initWithKey:(NSString *)key {
-    self = [super initWithKey:key];
+    self = (QDateTimeInlineElement *)[super initWithKey:key];
     return self;
 }
 
 - (QDateTimeInlineElement *)initWithTitle:(NSString *)string date:(NSDate *)date {
-    self = [super initWithTitle:string Value:[date description]];
+    self = (QDateTimeInlineElement *)[super initWithTitle:string Value:[date description]];
     if (self!=nil){
         _dateValue = date;
         _mode = UIDatePickerModeDateAndTime;
@@ -47,7 +47,7 @@
 
 - (UITableViewCell *)getCellForTableView:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller {
 
-    QDateEntryTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"QuickformDateTimeInlineElement"];
+    QDateEntryTableViewCell *cell = (QDateEntryTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"QuickformDateTimeInlineElement"];
     if (cell==nil){
         cell = [[QDateEntryTableViewCell alloc] init];
     }
