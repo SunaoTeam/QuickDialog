@@ -46,6 +46,9 @@
 }
 
 - (QRadioElement *)initWithItems:(NSArray *)stringArray selected:(NSInteger)selected title:(NSString *)title {
+    [stringArray retain];
+    [title retain];
+    
     self = [super init];
     if (self!=nil){
         _items = stringArray;

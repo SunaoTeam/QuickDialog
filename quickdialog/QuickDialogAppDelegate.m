@@ -55,7 +55,7 @@
     
     [controls addElement:radioElement];
     [radioElement release];
-//    [radioElementItems release];
+    [radioElementItems release];
     
     [controls addElement:entryElement];
     [entryElement release];
