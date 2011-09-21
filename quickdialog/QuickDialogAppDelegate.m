@@ -30,8 +30,7 @@
     
     QButtonElement *button = [[QButtonElement alloc] initWithTitle:@"A Button"];
     [remaining_controls addElement:button];
-    [button release];
-    
+    [button release];    
     [remaining_controls release];
     
     self.navigation = [QuickDialogController controllerWithNavigationForRoot:root];

@@ -16,9 +16,7 @@
 
 @implementation QEmptyListElement
 
-- (QEmptyListElement *)init {
-    NSLog(@"Creating an Empty List element");
-    
+- (QEmptyListElement *)init {    
     self = (QEmptyListElement *)[super initWithTitle:@"Empty" Value:nil];
     return self;
 }
