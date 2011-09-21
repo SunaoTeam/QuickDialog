@@ -42,7 +42,6 @@
     NSArray *radioElementItems = [[NSArray alloc] initWithObjects:@"Option 1", @"Option 2", @"Option 3", nil];
     QRadioElement *radioElement = [[QRadioElement alloc] initWithItems:radioElementItems selected:0 title:@"Radio"];
 	radioElement.key = @"radio1";
-    [radioElementItems release];
     
     QBooleanElement *boolElement = [[QBooleanElement alloc] initWithTitle:@"Boolean Element" BoolValue:YES];
 	boolElement.key = @"bool1";
@@ -56,6 +55,8 @@
     
     [controls addElement:radioElement];
     [radioElement release];
+//    [radioElementItems release];
+    
     [controls addElement:entryElement];
     [entryElement release];
 	
