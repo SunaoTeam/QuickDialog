@@ -12,4 +12,6 @@
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
 
+- (QSection *)createSampleControls;
+
 @end
