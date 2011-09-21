@@ -72,7 +72,8 @@
     [controls addElement:slider];
     [slider release];
     
-    QDecimalElement *decimal = [[QDecimalElement alloc] initWithTitle:@"Decimal Element" value:0.5];
+    // this seems unconvinced of the obj return type, even though it appears correct. Very odd. --Nick.
+    QDecimalElement *decimal = (QDecimalElement *)[[QDecimalElement alloc] initWithTitle:@"Decimal Element" value:0.5];
     decimal.key = @"decimal1";
     decimal.fractionDigits = 3;
     [controls addElement:decimal];
