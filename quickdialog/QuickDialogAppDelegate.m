@@ -20,7 +20,19 @@
     root.title = @"Hello World"; // view title
     root.grouped = YES; // view style
     
+    // add a section of the main controls
     [root addSection:[self createSampleControls]];
+    
+    
+    // new section for the reminaing controls
+    QSection *remaining_controls = [[QSection alloc] init];
+    [root addSection:remaining_controls];
+    
+    QButtonElement *button = [[QButtonElement alloc] initWithTitle:@"A Button"];
+    [remaining_controls addElement:button];
+    [button release];
+    
+    [remaining_controls release];
     
     self.navigation = [QuickDialogController controllerWithNavigationForRoot:root];
     
@@ -71,6 +83,10 @@
 	slider.key = @"slider1";
     [controls addElement:slider];
     [slider release];
+    
+    QEmptyListElement *empty = [[QEmptyListElement alloc] init];
+    [controls addElement:empty];
+    [empty release];
     
     // this seems unconvinced of the obj return type, even though it appears correct. Very odd. --Nick.
     QDecimalElement *decimal = (QDecimalElement *)[[QDecimalElement alloc] initWithTitle:@"Decimal Element" value:0.5];
