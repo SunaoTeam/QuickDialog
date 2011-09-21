@@ -8,9 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@interface QuickDialogAppDelegate : NSObject <UIApplicationDelegate>
+@interface QuickDialogAppDelegate : NSObject <UIApplicationDelegate> {
+    
+    UINavigationController *navigation;
+}
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
+@property (nonatomic, retain) UINavigationController *navigation;
 
 - (QSection *)createSampleControls;
 

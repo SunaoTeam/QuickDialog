@@ -11,6 +11,7 @@
 @implementation QuickDialogAppDelegate
 
 @synthesize window = _window;
+@synthesize navigation = _navigation;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -21,22 +22,27 @@
     
     [root addSection:[self createSampleControls]];
     
-    UINavigationController *navigation = [QuickDialogController controllerWithNavigationForRoot:root];
+    self.navigation = [QuickDialogController controllerWithNavigationForRoot:root];
+    
+    // once it has been setup as the root for the controller, we can safely release it
+    [root release];
     
     // add as a subview
-    [self.window addSubview:navigation.view];
+    [self.window addSubview:self.navigation.view];
     
     [self.window makeKeyAndVisible];
     return YES;
 }
 
 - (QSection *)createSampleControls {
-    QSection *controls = [[QSection alloc] initWithTitle:@"Change something"];
+    QSection *controls = [[[QSection alloc] initWithTitle:@"Change something"] autorelease];
     
     QLabelElement *element1 = [[QLabelElement alloc] initWithTitle:@"Label" Value:@"element"];
     
-    QRadioElement *radioElement = [[QRadioElement alloc] initWithItems:[[NSArray alloc] initWithObjects:@"Option 1", @"Option 2", @"Option 3", nil] selected:0 title:@"Radio"];
+    NSArray *radioElementItems = [[NSArray alloc] initWithObjects:@"Option 1", @"Option 2", @"Option 3", nil];
+    QRadioElement *radioElement = [[QRadioElement alloc] initWithItems:radioElementItems selected:0 title:@"Radio"];
 	radioElement.key = @"radio1";
+    [radioElementItems release];
     
     QBooleanElement *boolElement = [[QBooleanElement alloc] initWithTitle:@"Boolean Element" BoolValue:YES];
 	boolElement.key = @"bool1";
@@ -46,23 +52,30 @@
 	
     controls.footer = @"More controls will be added.";
     [controls addElement:element1];
+    [element1 release];
     
     [controls addElement:radioElement];
+    [radioElement release];
     [controls addElement:entryElement];
+    [entryElement release];
 	
     [controls addElement:boolElement];
+    [boolElement release];
 	QDateTimeInlineElement *dateElement = [[QDateTimeInlineElement alloc] initWithTitle:@"DateTime" date:[NSDate date]];
 	dateElement.key = @"date1";
     [controls addElement:dateElement];
+    [dateElement release];
     
     QFloatElement *slider = [[QFloatElement alloc] initWithTitle:@"Float Element" value:0.5];
 	slider.key = @"slider1";
     [controls addElement:slider];
+    [slider release];
     
     QDecimalElement *decimal = [[QDecimalElement alloc] initWithTitle:@"Decimal Element" value:0.5];
     decimal.key = @"decimal1";
     decimal.fractionDigits = 3;
     [controls addElement:decimal];
+    [decimal release];
     
     return controls;
 }
@@ -108,6 +121,7 @@
 
 - (void)dealloc
 {
+    [_navigation release];
     [_window release];
     [super dealloc];
 }
