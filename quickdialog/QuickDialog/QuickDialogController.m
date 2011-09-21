@@ -75,7 +75,10 @@
 
 + (QuickDialogController *)buildControllerWithClass:(Class)controllerClass buildControllerWithClass:(QRootElement *)root {
     controllerClass = controllerClass==nil? [QuickDialogController class] : controllerClass;
-    return [((QuickDialogController *)[controllerClass alloc]) initWithRoot:root];
+    
+    QuickDialogController *controller = [[((QuickDialogController *)[controllerClass alloc]) initWithRoot:root] autorelease];
+    
+    return controller;
 }
 
 - (QuickDialogController *)controllerForRoot:(QRootElement *)root {
@@ -96,11 +99,15 @@
     } else {
         controllerClass = [self class];
     }
-    return [((QuickDialogController *)[controllerClass alloc]) initWithRoot:root];
+    
+    QuickDialogController *controller = [[((QuickDialogController *)[controllerClass alloc]) initWithRoot:root] autorelease];
+    return controller;
 }
 
 + (UINavigationController*)controllerWithNavigationForRoot:(QRootElement *)root {
-    return [[UINavigationController alloc] initWithRootViewController:[QuickDialogController buildControllerWithClass:nil buildControllerWithClass:root]] ;
+    UINavigationController *controller = [[[UINavigationController alloc] initWithRootViewController:[QuickDialogController buildControllerWithClass:nil buildControllerWithClass:root]] autorelease];
+    
+    return  controller;
 }
 
 @end

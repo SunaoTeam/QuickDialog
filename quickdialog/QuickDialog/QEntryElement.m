@@ -34,7 +34,7 @@
 
     QEntryTableViewCell *cell = (QEntryTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"QuickformEntryElement"];
     if (cell==nil){
-        cell = [[QEntryTableViewCell alloc] init];
+        cell = [[[QEntryTableViewCell alloc] init] autorelease];
     }
     
     [cell prepareForElement:self inTableView:tableView];
