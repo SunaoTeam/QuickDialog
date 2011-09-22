@@ -37,11 +37,11 @@
 }
 
 - (void)addElement:(QElement *)element {
-    if (self.elements==nil)
+    if (self.elements == nil)
             self.elements = [[NSMutableArray alloc] init];
 
-    [self.elements addObject:element];
     element.parentSection = self;
+    [self.elements addObject:element];
 }
 
 - (void)fetchValueIntoObject:(id)obj {
@@ -49,6 +49,5 @@
         [el fetchValueIntoObject:obj];
     }
 }
-
 
 @end

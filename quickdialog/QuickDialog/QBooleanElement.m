@@ -46,13 +46,17 @@
         boolSwitch.enabled = _enabled;
         [boolSwitch addTarget:self action:@selector(switched:) forControlEvents:UIControlEventValueChanged];
         cell.accessoryView = boolSwitch;
+        
+        [boolSwitch release];
 
     } else {
         UIImageView *boolSwitch = [[UIImageView alloc] initWithImage: _boolValue ? _onImage : _offImage];
         cell.accessoryView = boolSwitch;
         cell.selectionStyle = UITableViewCellSelectionStyleBlue;
+        
+        [boolSwitch release];
     }
-
+    
     return cell;
 }
 
