@@ -101,7 +101,8 @@
     _textField.placeholder = dateElement.placeholder;
 
     _textField.inputAccessoryView.hidden = entry.hiddenToolbar;
+    
+    [dateFormatter release];
 }
-
 
 @end

@@ -87,6 +87,8 @@
     }
 
     cell.detailTextLabel.text = [dateFormatter stringFromDate:_dateValue];
+    
+    [dateFormatter release];
 
     return cell;
 }
@@ -106,6 +108,7 @@
         dateElement.mode =  UIDatePickerModeDate;
         dateElement.hiddenToolbar = YES;
         [section addElement:dateElement];
+        [dateElement release];
 
     }
     if (_mode == UIDatePickerModeTime || _mode == UIDatePickerModeDateAndTime){
@@ -115,8 +118,10 @@
         timeElement.mode = UIDatePickerModeTime;
         timeElement.hiddenToolbar = YES;
         [section addElement:timeElement];
+        [timeElement release];
     }
     [self addSection:section];
+    [section release];
 }
 
 - (void)fetchValueIntoObject:(id)obj {
