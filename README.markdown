@@ -1,6 +1,42 @@
 # QuickDialog
 
-_A fork of QuickDialog which removes the requirement of using automatic reference counting. The rest of the original README follows:_
+_A fork of QuickDialog which removes the requirement of using automatic reference counting. The rest of the original README follows after a brief note on memory management._
+
+---
+
+## Memory Management
+
+When creating elements, you'll find that you can release them once they are added to a QSection or QRootElement. Example:
+
+	QRootElement *root = [[QRootElement alloc] init];
+	root.title = @"Hello World";
+	root.grouped = YES;
+	QSection *section = [[QSection alloc] init];
+	QLabelElement *label = [[QLabelElement alloc] initWithTitle:@"Hello" Value:@"world!"];
+	
+	[section addElement:label];
+	[label release];
+	[root addSection:section];
+	[section release];
+
+	UINavigationController *navigation = [QuickDialogController controllerWithNavigationForRoot:root];
+	[self presentModalViewController:navigation animated:YES];
+	[navigation release];
+
+You will (unlike the canonical repo) find it easier to add the sections and elements in the order you wish them to be displayed (like my example above).
+
+## Other Notes
+
+* Creating a QSection within a QSection will nest the elements.
+
+## Some Caveats
+
+1. I'm no expert on memory management. Most of what I've done could probably done better.
+2. I've only tested this within reason. If the change didn't cause an instant crash, or crash on use, it was considered good enough.
+3. Some elements (where I've modified them) haven't been tested, because I was too lazy to instantiate them in my example.
+4. Whilst I am using this in production, I am only using sections of it. These have worked fine, so caveat emptor.
+5. If you come across a problem, post an issue. I'll fix it (If I can.)
+6. Post a Pull Request if you want to incorporate changes.
 
 ---
 
