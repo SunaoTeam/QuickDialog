@@ -15,9 +15,9 @@
 #import "QWebViewController.h"
 
 @interface QWebViewController ()
+
 - (CGImageRef)createBackArrowImageRef;
 - (CGImageRef)createForwardArrowImageRef;
-
 
 @end
 
@@ -27,10 +27,10 @@
     BOOL _firstPageFinished;
     BOOL _previousToolbarState;
 }
-- (QWebViewController *)initWithUrl:(NSString *)url {
 
+- (QWebViewController *)initWithUrl:(NSString *)url {
     self = [super init];
-    if (self!=nil){
+    if (self != nil){
         _webView = [[UIWebView alloc] init];
         _webView.delegate = self;
         _webView.scalesPageToFit = YES;        
@@ -44,6 +44,10 @@
         
         _btBack.enabled = NO;
         _btForward.enabled = NO;
+        
+        // ownership is taken by UIBarButtonItem, so we can release them.
+        [backImage release];
+        [forwardImage release];
     }
     return self;
 }
@@ -87,16 +91,18 @@
     spacer1.width = 30;
     UIBarButtonItem *spacer2 = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
     spacer2.width = 30;
-    self.toolbarItems = [NSArray arrayWithObjects:
-            _btBack,
-            spacer1,
-            _btForward,
-            [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil],
-            [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(actionRefresh)],
-            spacer2,        
-            [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(actionGoToSafari)],
-            nil];
+    UIBarButtonItem *spacer3 = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
     
+    UIBarButtonItem *refresh = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(actionRefresh)];
+    UIBarButtonItem *action = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(actionGoToSafari)];
+    
+    self.toolbarItems = [NSArray arrayWithObjects:_btBack, spacer1, _btForward, spacer3, refresh,spacer2, action, nil];
+    
+    [spacer1 release];
+    [spacer2 release];
+    [spacer3 release];
+    [refresh release];
+    [action release];
 }
 
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
@@ -106,7 +112,8 @@
 - (void)webViewDidStartLoad:(UIWebView *)webView {
     UIActivityIndicatorView *indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
     [indicator startAnimating];
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:indicator];
+    self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithCustomView:indicator] autorelease];
+    [indicator release];
     self.title = @"Loading";
     if (_firstPageFinished==YES){
         _btBack.enabled = YES;
@@ -164,6 +171,13 @@
    CGImageRef image = CGBitmapContextCreateImage(context);
    CGContextRelease(context);
    return image;
+}
+
+-(void)dealloc {
+    [super dealloc];
+    
+    [_btBack release];
+    [_btForward release];
 }
 
 @end
