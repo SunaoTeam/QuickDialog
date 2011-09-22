@@ -30,7 +30,17 @@
     
     QButtonElement *button = [[QButtonElement alloc] initWithTitle:@"A Button"];
     [remaining_controls addElement:button];
-    [button release];    
+    [button release];
+    
+    QWebElement *web = [[QWebElement alloc] initWithTitle:@"Web" url:@"http://nickcharlton.net"];
+    QMapElement *map = [[QMapElement alloc] initWithTitle:@"Exeter, UK" coordinate:CLLocationCoordinate2DMake(50.7218, -3.533617)];
+    
+    [remaining_controls addElement:web];
+    [web release];
+    [remaining_controls addElement:map];
+    [map release];
+    
+    // release the remianing controls section.
     [remaining_controls release];
     
     self.navigation = [QuickDialogController controllerWithNavigationForRoot:root];

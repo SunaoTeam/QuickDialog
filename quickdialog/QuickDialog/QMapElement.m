@@ -28,6 +28,7 @@
 - (void)selected:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller indexPath:(NSIndexPath *)path {
     QMapViewController *mapController = (QMapViewController *)[[QMapViewController alloc] initWithTitle:_title coordinate:_coordinate];
     [controller displayViewController:mapController];
+    [mapController release];
 
 }
 @end
